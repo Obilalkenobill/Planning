@@ -1,0 +1,15 @@
+<table *ngIf="listpatient" class="table">
+  <tr>
+  <th>ID</th><th>Nom</th><th>Prenom</th> <th></th> 
+</tr>
+  
+  <tr  *ngFor="let f of listpatient">
+    <td>{{f.id}}</td>
+    <td>{{f.nom}}</td>
+    <td>{{f.prenom}}</td>
+
+    <td [routerLink]='["/patientdetail", f.id]' routerLinkActive="active" type="button" class="btn btn-light">Obtenir les infos</td>
+ 
+</tr> 
+<tr routerLink='/patientcr' type="button" class="btn btn-secondary">Ajouter un patient</tr>
+</table>

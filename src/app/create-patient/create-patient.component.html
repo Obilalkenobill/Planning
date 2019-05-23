@@ -1,0 +1,61 @@
+<div class="container">
+    <div class="row">
+      <div class="offset-3"></div>
+      <div class="col-md-6">
+        <form name="form" #f="ngForm" (ngSubmit)="f.form.valid && Post()" novalidate class="feedback-form">
+          <!-- Name -->
+          <div class="form-group">
+            <label for="nom">Nom</label>
+            <input type="text"
+                   id="nom"
+                   class="form-control"
+                   name="nom"
+                   placeholder="Entez le nom du patient"
+                   [(ngModel)]="model.nom"
+                   #nom="ngModel"
+                   [ngClass]="{ 'is-invalid': f.submitted && nom.invalid }"
+                   required/>
+            <!-- input validation group -->
+            <div *ngIf="f.submitted && nom.invalid" class="invalid-input">
+              <!-- individual validation errors -->
+              <div *ngIf="nom.errors?.required">Champ requis</div>
+            </div>
+          </div>
+          <div class="form-group">
+              <label for="prenom">Prénom</label>
+              <input type="text"
+                     id="prenom"
+                     class="form-control"
+                     name="prenom"
+                     placeholder="Entrez le prénom du patient"
+                     [(ngModel)]="model.prenom"
+                     #prenom="ngModel"
+                     [ngClass]="{ 'is-invalid': f.submitted && prenom.invalid }"
+                     required/>
+              <!-- input validation group -->
+              <div *ngIf="f.submitted && prenom.invalid" class="invalid-input">
+                <!-- individual validation errors -->
+                <div *ngIf="prenom.errors?.required">Champ requis</div>
+              </div>
+            </div>
+            <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+              
+                <div class="btn-group" role="group">
+                  <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Choisissez l'infirmier réferent
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                    <a class="dropdown-item" *ngFor="let infirmier of listinfirmier" #link (click)="manage(link)" [id]="infirmier.id">Id: {{infirmier.id}} {{infirmier.nom}} {{infirmier.prenom}}</a>
+                  </div>
+                </div>
+              </div>
+          <p></p>
+          <button type="submit" class="btn btn-info pull-right">
+            <i class="fa fa-envelope-o"></i>
+            <span > Enregistrer le nouveau patient</span>
+          </button>
+        </form>
+      </div>
+      <div class="offset-3"></div>
+    </div>
+  </div>

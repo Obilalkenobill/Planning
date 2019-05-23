@@ -1,0 +1,33 @@
+
+<div class="container">
+  <table class="table">
+    <tr><td>Id</td><td>{{pat?.id}}</td></tr> 
+    <tr><td>Nom</td><td>{{pat?.nom}}</td></tr>
+    <tr><td>Prénom</td><td>{{pat?.prenom}}</td></tr>
+    <tr><td>Date de naissance</td><td>{{pat?.dateNaiss}}</td></tr>
+    <tr><td>N° telephone</td><td>{{pat?.tel}}</td></tr>
+    <tr><td>N° chambre</td><td>{{pat?.numChbre}}</td></tr>
+    <tr><td>Nom & Prénom Infirmier réferent</td><td>{{pat?.infirmier.nom}} {{pat?.infirmier.prenom}}</td></tr>
+  </table>
+</div>
+
+<div class="container">
+  <table class="table">
+    <tr><th>Adresse</th></tr>
+    <tr><td>Pays</td><td>{{pat?.adresse.pays}}</td></tr>
+    <tr><td>Ville</td><td>{{pat?.adresse.localite}}</td></tr>
+    <tr><td>Code postal</td><td>{{pat?.adresse.codePostale}}</td></tr>
+    <tr><td>Rue</td><td>{{pat?.adresse.rue}}</td></tr>
+    <tr><td>Numero (boite)</td><td>{{pat?.adresse.numeroEtBoite}}</td></tr>
+  </table>
+</div> 
+
+<div class="container">
+  <table class="table" *ngFor="let t of pat?.taches; let index =index">
+    <tr><th>Tâche n°{{index+1}}</th></tr>
+        <tr ><td>Jour</td><td>{{t.jour.nomJour}}</td></tr>
+        <tr ><td>Heure</td><td>{{t.heure.nomHeure}}</td></tr>
+        <tr ><td>Type</td><td>{{t.itache.type}}</td></tr>
+        <tr ><td>Description</td><td>{{t.itache.description}}</td></tr>
+  </table>
+</div>
