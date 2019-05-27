@@ -9,8 +9,8 @@ import { setDOM } from '@angular/platform-browser/src/dom/dom_adapter';
 })
 export class CreatePatientComponent implements OnInit {
 model:patient={
-  nom:'',
-  prenom:'',
+  nom:"",
+  prenom:"",
   infirmier:{id:null}
 };
 @Input() public listinfirmier;
@@ -20,7 +20,9 @@ model:patient={
     this.http.get("http://localhost:8010/infirmier").subscribe(data=>{this.listinfirmier=data},err=>{console.log(err)})
   }
   
-Post(){
+Post(nom,prenom){
+  this.model.nom=nom;
+  this.model.prenom=prenom;
   this.http.post("http://localhost:8010/patients",this.model).
   subscribe(data=>{location.reload()},
   err=>{alert(err)})

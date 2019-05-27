@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Role, User} from '../models/security.models';
+import { User,Role } from '../user/user/user.component';
 
 @Injectable({
   providedIn: 'root'
@@ -21,9 +21,16 @@ export class AuthorizeService {
   }
 
   isAuthenticate(){
-    return this.user != null;
+    let bool: Boolean=false;
+    if (this.user != null){bool=true;console.log("isAuth")}else{console.log("isNotAuth")}
+    return bool;
   }
   isAdmin(){
-    return this.user && this.user.roles.find(r => r == Role.Admin) != null || false;
+    let rolee:Role=new Role ("ROLE_ADMIN");
+    let bool: Boolean=false;
+    this.user.roles.forEach(t => {
+    if(t.name==rolee.name){bool=true}
+    });
+    return bool ;
   }
 }

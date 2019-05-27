@@ -11,5 +11,5 @@
     <td [routerLink]='["/patientdetail", f.id]' routerLinkActive="active" type="button" class="btn btn-light">Obtenir les infos</td>
  
 </tr> 
-<tr routerLink='/patientcr' type="button" class="btn btn-secondary">Ajouter un patient</tr>
+<tr *ngIf="this.authorize.isAuthenticate() && this.authorize.isAdmin()" routerLink='/patientcr' type="button" class="btn btn-secondary">Ajouter un patient</tr>
 </table>

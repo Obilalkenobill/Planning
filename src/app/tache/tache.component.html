@@ -1,0 +1,54 @@
+<!-- 
+<div class="container">
+  <table class="table">
+    <tr><td>Id</td><td>{{listTaches?.id}}</td></tr> 
+    <tr><td>Nom</td><td>{{listTaches?.nom}}</td></tr>
+    <tr><td>Prénom</td><td>{{listTaches?.patients}}</td></tr>
+    <tr><td>Date de naissance</td><td>{{listTaches?.dateNaiss}}</td></tr>
+    <tr><td>N° telephone</td><td>{{listTaches?.tel}}</td></tr>
+    <tr><td>N° chambre</td><td>{{listTaches?.numChbre}}</td></tr>
+    <tr><td>Nom & Prénom Infirmier réferent</td><td>{{listTaches?.infirmier.nom}} {{listTaches?.infirmier.prenom}}</td></tr>
+  </table>
+</div>
+
+<div class="container">
+  <table class="table">
+    <tr><th>Adresse</th></tr>
+    <tr><td>Pays</td><td>{{pat?.adresse.Pays}}</td></tr>
+    <tr><td>Ville</td><td>{{pat?.adresse.localite}}</td></tr>
+    <tr><td>Code postal</td><td>{{pat?.adresse.codePostale}}</td></tr>
+    <tr><td>Rue</td><td>{{pat?.adresse.rue}}</td></tr>
+    <tr><td>Numero (boite)</td><td>{{pat?.adresse.numeroEtBoite}}</td></tr>
+  </table>
+</div>  -->
+
+<div class="container">
+  <table class="table" *ngFor="let f of listTaches; let index =index">
+      <tr><th >Tâche n°{{f.id}}</th></tr>
+      <tr ><td>Type</td><td>{{f.itache.type}}</td></tr>
+      <tr ><td>Déscription</td><td>{{f.itache.description}}</td></tr>
+      <tr ><td>Jour</td><td>{{f.jour.nomJour}}</td></tr>
+      <tr ><td>Heure</td><td>{{f.heure.nomHeure}}</td></tr> 
+    
+    <div class="container">
+      <table class="table" *ngFor="let f1 of f.patients; let index =index">
+        <tr><th>Patient(e) participatif(ve) Id n°{{f1.id}}</th></tr>
+        <tr ><td>Prénom</td><td>{{f1.prenom}}</td></tr>
+        <tr ><td>Nom</td><td>{{f1.nom}}</td></tr>
+      </table>
+    </div>
+
+    <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+              
+      <div class="btn-group" role="group">
+        <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Ajouter un patient
+        </button>
+        <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+          <a class="dropdown-item" *ngFor="let patient of listpatient" #link  (click)="Put(link,f.id)  " [id]="patient.id" >Id: {{patient.id}} {{patient.nom}} {{patient.prenom}}</a>
+        </div>
+      </div>
+    </div>
+  </table>
+</div>
+
