@@ -1,3 +1,5 @@
+<div *ngIf="this.authorize.isAuthenticate() && this.authorize.isAdmin()">
+
 <div class="container">
     <div class="row">
       <div class="offset-3"></div>
@@ -41,7 +43,7 @@
                     Choisissez l'infirmier réferent
                   </button>
                   <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                    <a class="dropdown-item" *ngFor="let infirmier of listinfirmier" #link (click)="manage(link)" [id]="infirmier.id">Id: {{infirmier.id}} {{infirmier.nom}} {{infirmier.prenom}}</a>
+                    <a class="dropdown-item" *ngFor="let infirmier of listinfirmier" (click)="manage(infirmier.id)" [id]="infirmier.id">Id: {{infirmier.id}} {{infirmier.nom}} {{infirmier.prenom}}</a>
                   </div>
                 </div>
               </div>
@@ -54,4 +56,5 @@
       </div>
       <div class="offset-3"></div>
     </div>
+  </div>
   </div>

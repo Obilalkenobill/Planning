@@ -21,12 +21,20 @@ export class AuthorizeService {
   }
 
   isAuthenticate(){
-    let bool: Boolean=false;
-    if (this.user != null){bool=true;console.log("isAuth")}else{console.log("isNotAuth")}
+    let bool: Boolean;
+    if (this.user != null){bool=true}else{bool=false}
     return bool;
   }
   isAdmin(){
     let rolee:Role=new Role ("ROLE_ADMIN");
+    let bool: Boolean=false;
+    this.user.roles.forEach(t => {
+    if(t.name==rolee.name){bool=true}
+    });
+    return bool ;
+  }
+  isUser(){
+    let rolee:Role=new Role ("ROLE_USER");
     let bool: Boolean=false;
     this.user.roles.forEach(t => {
     if(t.name==rolee.name){bool=true}

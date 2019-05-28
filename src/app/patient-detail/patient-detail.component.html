@@ -1,3 +1,4 @@
+<div *ngIf="this.authorize.isAuthenticate()">
 
 <div class="container">
   <table class="table">
@@ -30,4 +31,5 @@
         <tr ><td>Type</td><td>{{t.itache.type}}</td></tr>
         <tr ><td>Description</td><td>{{t.itache.description}}</td></tr>
   </table>
+</div>
 </div>

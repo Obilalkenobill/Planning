@@ -1,15 +1,18 @@
+<div *ngIf="this.authorize.isUser()">
+
 <table *ngIf="listpatient" class="table">
   <tr>
-  <th>ID</th><th>Nom</th><th>Prenom</th> <th></th> 
+  <th>ID</th><th>Nom</th><th>Prenom</th> <th></th><th></th> 
 </tr>
   
-  <tr  *ngFor="let f of listpatient">
-    <td>{{f.id}}</td>
-    <td>{{f.nom}}</td>
-    <td>{{f.prenom}}</td>
-
-    <td [routerLink]='["/patientdetail", f.id]' routerLinkActive="active" type="button" class="btn btn-light">Obtenir les infos</td>
- 
-</tr> 
+  <tr  *ngFor="let f of listpatient" >
+    <td *ngIf="f.isvalid">{{f.id}}</td>
+    <td *ngIf="f.isvalid">{{f.nom}}</td>
+    <td *ngIf="f.isvalid">{{f.prenom}}</td>
+    <td *ngIf="f.isvalid && this.authorize.isAuthenticate() && this.authorize.isAdmin()" [routerLink]='["/patientdetail", f.id]' routerLinkActive="active" type="button" class="btn btn-light">Obtenir les infos</td>
+    <td  *ngIf="f.isvalid && this.authorize.isAuthenticate() && this.authorize.isAdmin()" type="button" class="btn btn-light" (click)="Del(f.id)">Supprimer le patient</td>
+  </tr> 
 <tr *ngIf="this.authorize.isAuthenticate() && this.authorize.isAdmin()" routerLink='/patientcr' type="button" class="btn btn-secondary">Ajouter un patient</tr>
+
 </table>
+</div>

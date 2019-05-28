@@ -1,27 +1,4 @@
-<!-- 
-<div class="container">
-  <table class="table">
-    <tr><td>Id</td><td>{{listTaches?.id}}</td></tr> 
-    <tr><td>Nom</td><td>{{listTaches?.nom}}</td></tr>
-    <tr><td>Prénom</td><td>{{listTaches?.patients}}</td></tr>
-    <tr><td>Date de naissance</td><td>{{listTaches?.dateNaiss}}</td></tr>
-    <tr><td>N° telephone</td><td>{{listTaches?.tel}}</td></tr>
-    <tr><td>N° chambre</td><td>{{listTaches?.numChbre}}</td></tr>
-    <tr><td>Nom & Prénom Infirmier réferent</td><td>{{listTaches?.infirmier.nom}} {{listTaches?.infirmier.prenom}}</td></tr>
-  </table>
-</div>
-
-<div class="container">
-  <table class="table">
-    <tr><th>Adresse</th></tr>
-    <tr><td>Pays</td><td>{{pat?.adresse.Pays}}</td></tr>
-    <tr><td>Ville</td><td>{{pat?.adresse.localite}}</td></tr>
-    <tr><td>Code postal</td><td>{{pat?.adresse.codePostale}}</td></tr>
-    <tr><td>Rue</td><td>{{pat?.adresse.rue}}</td></tr>
-    <tr><td>Numero (boite)</td><td>{{pat?.adresse.numeroEtBoite}}</td></tr>
-  </table>
-</div>  -->
-
+<div *ngIf="this.authorize.isAuthenticate()">
 <div class="container">
   <table class="table" *ngFor="let f of listTaches; let index =index">
       <tr><th >Tâche n°{{f.id}}</th></tr>
@@ -38,17 +15,29 @@
       </table>
     </div>
 
-    <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+    <div class="btn-group" role="group" aria-label="Button group with nested dropdown" *ngIf="this.authorize.isAuthenticate() && this.authorize.isAdmin()">
               
       <div class="btn-group" role="group">
         <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Ajouter un patient
+          Ajouter un patient à la Tâche
         </button>
         <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-          <a class="dropdown-item" *ngFor="let patient of listpatient" #link  (click)="Put(link,f.id)  " [id]="patient.id" >Id: {{patient.id}} {{patient.nom}} {{patient.prenom}}</a>
+          <a class="dropdown-item" *ngFor="let patient of listpatient" (click)="Put(patient.id,f.id)">
+            <div *ngIf="patient.isvalid">Id: {{patient.id}} {{patient.nom}} {{patient.prenom}}</div></a>
+        </div>
+      </div>
+    </div>
+    <div class="btn-group" role="group" aria-label="Button group with nested dropdown" *ngIf="this.authorize.isAuthenticate() && this.authorize.isAdmin()">
+              
+      <div class="btn-group" role="group">
+        <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Retirer un patient de la Tâche
+        </button>
+        <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+          <a class="dropdown-item" *ngFor="let pat of f.patients"   (click)="Delete(pat.id,f.id)"  >Id: {{pat.id}} {{pat.nom}} {{pat.prenom}}</a>
         </div>
       </div>
     </div>
   </table>
 </div>
-
+</div>

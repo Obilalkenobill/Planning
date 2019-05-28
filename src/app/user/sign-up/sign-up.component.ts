@@ -10,7 +10,7 @@ import { User, Role } from '../user/user.component';
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
   styleUrls: ['./sign-up.component.css'],
-  providers:[]
+  providers:[AuthorizeService]
 })
 export class SignUpComponent implements OnInit {
   user: User={

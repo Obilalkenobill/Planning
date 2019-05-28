@@ -7,9 +7,9 @@
         <div class="container">
                 <div class="panel panel-primary">
                   <div class="panel-body">
-                    <button class="btn btn-primary">Infirmiers</button>
-                    <button routerLink='/patient' class="btn btn-primary" >Patients</button>
-                    <button class="btn btn-primary" routerLink='/taches' >Tâches</button>
+                    <button *ngIf="this.authorize.isAuthenticate()" class="btn btn-primary">Infirmiers</button>
+                    <button *ngIf="this.authorize.isAuthenticate()" routerLink='/patient' class="btn btn-primary" >Patients</button>
+                    <button *ngIf="this.authorize.isAuthenticate()" class="btn btn-primary" routerLink='/taches' >Tâches</button>
                     <button *ngIf="!this.authorize.isAuthenticate()" routerLink='/inscription' class="btn btn-primary">Inscription</button>
                     <button *ngIf="!this.authorize.isAuthenticate()" routerLink='/connexion' class="btn btn-primary">Connexion</button>
                     <button *ngIf="this.authorize.isAuthenticate()"  class="btn btn-primary" (click)="Logout()">Déconnexion</button>
@@ -20,3 +20,7 @@
 <p></p>
 
 <router-outlet ></router-outlet>
+
+<div class="alert alert-primary" role="alert" *ngIf="this.authorize.isAuthenticate()">
+    Bonne navigation <i>{{this.authorize.user.username}}</i>
+  </div>

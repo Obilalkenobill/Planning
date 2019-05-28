@@ -1,22 +1,4 @@
-<!-- <form class="col s12 white" #userRegistrationForm="ngForm" (ngSubmit)="OnSubmit(userRegistrationForm)">
-  <div class="row">
-    <div class="input-field col s6">
-      <input class="validate" type="text" name="UserName" #UserName ngModel required>
-      <label data-error="Required field!">UserName</label>
-    </div>
-    <div class="input-field col s6">
-      <input class="validate" type="password" name="Password" #Password ngModel required minlength="3">
-      <label [attr.data-error]="Password.errors!=null?(Password.errors.required?'Required field!':'Minimum 3 characters needed'):''">Password</label>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="input-field col s12">
-      <button [disabled]="!userRegistrationForm.valid" class="btn-large btn-submit" type="submit">Submit</button>
-    </div>
-  </div>
-</form> -->
-
+<div *ngIf="!this.authoriser.isAuthenticate()">
 <div *ngIf="isLoginError" class="red-text center error-message">
   <i class="material-icons">error</i> Incorrect username or password
 </div>
@@ -39,3 +21,4 @@
       </div>
     </div>
 </form>
+</div>

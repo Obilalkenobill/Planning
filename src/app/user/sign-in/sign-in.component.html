@@ -1,3 +1,4 @@
+<div *ngIf="!this.authoriser.isAuthenticate()">
 
 <div *ngIf="isLoginError" class="red-text center error-message">
   <i class="material-icons">error</i> Incorrect username or password
@@ -21,3 +22,4 @@
       </div>
     </div>
 </form>
+</div>
