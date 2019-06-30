@@ -28,34 +28,5 @@
   "bugs": {
     "url": "https://github.com/Obilalkenobill/Planning/issues"
   },
-<<<<<<< HEAD
   "homepage": "https://github.com/Obilalkenobill/Planning#readme"
-=======
-  "devDependencies": {
-    "@angular-devkit/build-angular": "~0.13.0",
-    "@angular/cli": "~7.3.8",
-    "@angular/compiler-cli": "~7.2.0",
-    "@angular/language-service": "~7.2.0",
-    "@types/crypto-js": "^3.1.43",
-    "@types/jasmine": "~2.8.8",
-    "@types/jasminewd2": "~2.0.3",
-    "@types/node": "^8.9.5",
-    "codelyzer": "~4.5.0",
-    "jasmine-core": "~2.99.1",
-    "jasmine-spec-reporter": "~4.2.1",
-    "karma": "~4.0.0",
-    "karma-chrome-launcher": "~2.2.0",
-    "karma-coverage-istanbul-reporter": "~2.0.1",
-    "karma-jasmine": "~1.1.2",
-    "karma-jasmine-html-reporter": "^0.2.2",
-    "protractor": "~5.4.0",
-    "ts-node": "~7.0.0",
-    "tslint": "~5.11.0",
-      "typescript": "~3.4.5"
-  } ,
-  "engines": {
-    "node": "12.0.0",
-    "npm": "6.9.0"
-  }
->>>>>>> 393e1794ccc8ae4d3069b1a3feb81db73c8ebae0
 }
