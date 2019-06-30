@@ -12,11 +12,19 @@
   },
   "private": true,
   "dependencies": {
+<<<<<<< HEAD
     "@angular/animations": "^5.2.0",
     "@angular/common": "^7.2.0",
     "@angular/compiler": "^7.2.0",    
 	"@angular/cli": "~7.3.9",
      "@angular/compiler-cli": "~7.2.0",
+=======
+  "@angular/animations": "^8.0.3",
+    "@angular/cli": "~7.3.9",
+    "@angular/common": "^7.2.0",
+    "@angular/compiler": "^7.2.0",
+    "@angular/compiler-cli": "~7.2.0",
+>>>>>>> 03ec8a101b341e4e883b2f9b061fa5dd893f1a80
     "@angular/core": "^7.2.0",
     "@angular/forms": "^5.2.0",
     "@angular/http": "^7.2.0",
@@ -53,4 +61,8 @@
      "npm": "6.9.0"
    }
   }
+<<<<<<< HEAD
 }
+=======
+
+>>>>>>> 03ec8a101b341e4e883b2f9b061fa5dd893f1a80
