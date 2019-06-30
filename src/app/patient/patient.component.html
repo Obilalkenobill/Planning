@@ -1,14 +1,15 @@
-<div *ngIf="this.authorize.isUser()">
+<div *ngIf="this.authorize.isUser() && this.authorize.isAuthenticate()">
 
 <table *ngIf="listpatient" class="table">
   <tr>
-  <th>ID</th><th>Nom</th><th>Prenom</th> <th></th><th></th> 
+  <th>ID</th><th>Nom</th><th>Prenom</th> <th>Nombre de Tâches</th><th></th> <th></th>
 </tr>
   
   <tr  *ngFor="let f of listpatient" >
     <td *ngIf="f.isvalid">{{f.id}}</td>
     <td *ngIf="f.isvalid">{{f.nom}}</td>
     <td *ngIf="f.isvalid">{{f.prenom}}</td>
+    <td *ngIf="f.isvalid">{{f.taches.length}}</td>
     <td *ngIf="f.isvalid && this.authorize.isAuthenticate() && this.authorize.isAdmin()" [routerLink]='["/patientdetail", f.id]' routerLinkActive="active" type="button" class="btn btn-light">Obtenir les infos</td>
     <td  *ngIf="f.isvalid && this.authorize.isAuthenticate() && this.authorize.isAdmin()" type="button" class="btn btn-light" (click)="Del(f.id)">Supprimer le patient</td>
   </tr> 

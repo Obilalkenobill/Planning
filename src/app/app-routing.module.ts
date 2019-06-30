@@ -7,6 +7,8 @@ import { SignInComponent } from './user/sign-in/sign-in.component';
 import { SignUpComponent } from './user/sign-up/sign-up.component';
 import { AppComponent } from './app.component';
 import { TacheComponent } from './tache/tache.component';
+import { InfirmierComponent } from './infirmier/infirmier.component';
+import { CreateInfirmierComponent } from './create-infirmier/create-infirmier.component';
 
 const appRoutes: Routes=[
   {
@@ -26,6 +28,12 @@ const appRoutes: Routes=[
 },
 {
   path:'taches', component:TacheComponent
+},
+{
+  path:'infirmier',component:InfirmierComponent
+},
+{
+  path:'crinfi',component:CreateInfirmierComponent
 }
 ];
 @NgModule({

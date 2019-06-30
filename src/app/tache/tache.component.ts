@@ -38,22 +38,7 @@ modelo: Patient={
     this.model.patients.push(patientcur);
     this.httpClient.put("http://localhost:8010/taches/"+Taskid,this.model,options).
     subscribe(data=>{location.reload()},err=>{alert(err)})
-    setTimeout(()=>this.Put2(PatId,Taskid), 5000)
 
-  }
- public Put2(PatId:number,TaskId:number){
-  let headers = new HttpHeaders({
-    'Content-Type': 'application/json'
- });
- let options = {
-    headers: headers
- }
-  let taskcurr:tache={id:TaskId};
-      this.modelo.taches.push(taskcurr);
-      this.httpClient.put("http://localhost:8010/patients/"+PatId,this.modelo,options).
-    subscribe(data=>{location.reload()},
-      err=>{alert(err)})
-      console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
   }
 
   Delete(PatId,TaskId){

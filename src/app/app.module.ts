@@ -13,6 +13,8 @@ import { SignUpComponent } from './user/sign-up/sign-up.component';
 import { ToastrModule } from 'ngx-toastr'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TacheComponent } from './tache/tache.component';
+import { InfirmierComponent } from './infirmier/infirmier.component';
+import { CreateInfirmierComponent } from './create-infirmier/create-infirmier.component';
 
 
 @NgModule({
@@ -23,7 +25,9 @@ import { TacheComponent } from './tache/tache.component';
     CreatePatientComponent,
     SignInComponent,
     SignUpComponent,
-    TacheComponent
+    TacheComponent,
+    InfirmierComponent,
+    CreateInfirmierComponent
   ],
   imports: [
     BrowserModule,

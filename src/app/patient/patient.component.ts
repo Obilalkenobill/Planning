@@ -14,14 +14,16 @@ export class PatientComponent implements OnInit {
 id:null,
  isvalid:true
   }
-  @Input() listpatient;
+  @Input() listpatient:any;
+  nbreDePat;
   constructor(private httpClient:HttpClient, public authorize: AuthorizeService){
   }
 
   ngOnInit() {
     this.httpClient
     .get("http://localhost:8010/patients")
-    .subscribe(data=>{this.listpatient=data})
+    .subscribe(data=>{this.listpatient=data;this.nbreDePat=this.listpatient.length
+  let nbreTacheTabl:[number]=[this.nbreDePat];})
   }
   Del(PatId:number){
     this.model.isvalid=false;
