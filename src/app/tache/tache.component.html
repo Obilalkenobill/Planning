@@ -1,7 +1,11 @@
 <div *ngIf="this.authorize.isAuthenticate()">
 <div class="container">
   <table class="table" *ngFor="let f of listTaches; let index =index">
+<<<<<<< HEAD
       <tr><th >Tâche n°{{f.id}}</th><th><img *ngIf="f.itache.path!=null"  [src]="f.itache.path" alt="Photo de la tâche" /></th></tr>
+=======
+      <tr><th >Tâche n°{{f.id}}</th><th><img *ngIf="f.itache.path!=null"  [src]="f.itache.path" alt="Photo de tâches" /></th></tr>
+>>>>>>> 20d37d56e7c764ecb4a2edd9906d2a87a6d31f34
       <tr ><td>Type</td><td>{{f.itache.type}}</td></tr>
       <tr ><td>Déscription</td><td>{{f.itache.description}}</td></tr>
       <tr ><td>Jour</td><td>{{f.jour.nomJour}}</td></tr>
