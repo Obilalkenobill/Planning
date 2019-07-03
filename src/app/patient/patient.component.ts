@@ -16,6 +16,10 @@ id:null,
   }
   @Input() listpatient:any;
   nbreDePat;
+
+  indexx:number=0;
+  somme:number=0;
+   moyenne:number;
   constructor(private httpClient:HttpClient, public authorize: AuthorizeService){
   }
 
@@ -23,8 +27,15 @@ id:null,
     this.httpClient
     .get("http://localhost:8010/patients")
     .subscribe(data=>{this.listpatient=data;this.nbreDePat=this.listpatient.length
-  let nbreTacheTabl:[number]=[this.nbreDePat];})
-  }
+  let nbreTacheTabl:[number]=[this.nbreDePat];
+      this.listpatient.forEach(element => {
+       this.somme=element.taches.length+this.somme;
+       this.indexx++;
+      });
+    this.moyenne=this.somme/this.indexx;
+    this.moyenne=Math.round(this.moyenne+0.5);
+    })     
+}
   Del(PatId:number){
     this.model.isvalid=false;
     this.model.id=PatId;

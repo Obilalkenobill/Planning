@@ -2,7 +2,7 @@
 
 <table *ngIf="listpatient" class="table">
   <tr>
-  <th>ID</th><th>Nom</th><th>Prenom</th> <th>Nombre de Tâches</th><th></th> <th></th>
+  <th>ID</th><th>Nom</th><th>Prenom</th> <th>Tâches</th><th></th><th></th><th></th><th></th><th></th>
 </tr>
   
   <tr  *ngFor="let f of listpatient" >
@@ -10,10 +10,16 @@
     <td *ngIf="f.isvalid">{{f.nom}}</td>
     <td *ngIf="f.isvalid">{{f.prenom}}</td>
     <td *ngIf="f.isvalid">{{f.taches.length}}</td>
+    <td *ngIf="f.taches.length > moyenne"><div class="p-3 mb-2 bg-danger text-white">*Max</div></td>
+    <td *ngIf="moyenne>f.taches.length"><div class="p-3 mb-2 bg-danger text-white">*Min</div></td>
+    <td *ngIf="moyenne==f.taches.length"><div class="p-3 mb-2 bg-success text-white">*OK</div></td>
     <td *ngIf="f.isvalid && this.authorize.isAuthenticate() && this.authorize.isAdmin()" [routerLink]='["/patientdetail", f.id]' routerLinkActive="active" type="button" class="btn btn-light">Obtenir les infos</td>
     <td  *ngIf="f.isvalid && this.authorize.isAuthenticate() && this.authorize.isAdmin()" type="button" class="btn btn-light" (click)="Del(f.id)">Supprimer le patient</td>
   </tr> 
 <tr *ngIf="this.authorize.isAuthenticate() && this.authorize.isAdmin()" routerLink='/patientcr' type="button" class="btn btn-secondary">Ajouter un patient</tr>
 
 </table>
+<p>Max: ce patient a trop de tâches, veillez a les diminuer.</p>
+<p>Min: ce patient n'a pas assez de tâches, veillez a les augmenter.</p>
+<p>Moyenne des tâches = {{moyenne}} tâche(s) par patient</p>
 </div>
