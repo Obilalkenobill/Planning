@@ -2,7 +2,7 @@
 //Install express server
 const express = require('express');
 
-const http = requiere ('http');
+const http = require ('http');
 
 const path = require('path');
 
