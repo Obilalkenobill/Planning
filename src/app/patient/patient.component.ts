@@ -25,7 +25,7 @@ id:null,
 
   ngOnInit() {
     this.httpClient
-    .get("http://localhost:8010/patients")
+    .get("http://planback.herokuapp.com/patients")
     .subscribe(data=>{this.listpatient=data;this.nbreDePat=this.listpatient.length
   let nbreTacheTabl:[number]=[this.nbreDePat];
       this.listpatient.forEach(element => {
@@ -39,7 +39,7 @@ id:null,
   Del(PatId:number){
     this.model.isvalid=false;
     this.model.id=PatId;
-    this.httpClient.put("http://localhost:8010/patients/"+PatId,this.model).
+    this.httpClient.put("http://planback.herokuapp.com/patients/"+PatId,this.model).
     subscribe(data=>{location.reload()},
     err=>{alert(err)})
   }

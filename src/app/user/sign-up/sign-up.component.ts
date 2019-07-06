@@ -31,7 +31,7 @@ export class SignUpComponent implements OnInit {
   OnSubmit(UserName,Password) {
     this.user.username=UserName;
     this.user.password=Password;
-    this.http.post("http://localhost:8010/user",this.user)
+    this.http.post("http://planback.herokuapp.com/user",this.user)
       .subscribe(
         (data:any)=>
           {

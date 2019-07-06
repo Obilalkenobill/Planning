@@ -19,13 +19,13 @@ model:infirmier={
     
       ngOnInit() {
         this.httpClient
-        .get("http://localhost:8010/infirmier")
+        .get("http://planback.herokuapp.com/infirmier")
         .subscribe(data=>{this.listinfirmier=data})
       }
       Del(infId:number){
         this.model.isvalid=false;
         this.model.id=infId;
-        this.httpClient.put("http://localhost:8010/infirmier/"+infId,this.model).
+        this.httpClient.put("http://planback.herokuapp.com/infirmier/"+infId,this.model).
         subscribe(data=>{location.reload()},
         err=>{alert(err)})
       }

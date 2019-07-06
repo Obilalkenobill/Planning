@@ -21,10 +21,10 @@ modelo: Patient={
   ngOnInit() {
 
     this.httpClient
-    .get("http://localhost:8010/taches")
+    .get("http://planback.herokuapp.com/taches")
     .subscribe(data=>{this.listTaches=data})
   
-  this.httpClient.get("http://localhost:8010/patients").subscribe(data=>{this.listpatient=data},err=>{console.log(err)})
+  this.httpClient.get("http://planback.herokuapp.com/patients").subscribe(data=>{this.listpatient=data},err=>{console.log(err)})
   }
  
   Put(PatId:number,Taskid:number){ 
@@ -36,13 +36,13 @@ modelo: Patient={
    }
     let patientcur:patient={id:+PatId};
     this.model.patients.push(patientcur);
-    this.httpClient.put("http://localhost:8010/taches/"+Taskid,this.model,options).
+    this.httpClient.put("http://planback.herokuapp.com/taches/"+Taskid,this.model,options).
     subscribe(data=>{location.reload()},err=>{alert(err)})
 
   }
 
   Delete(PatId,TaskId){
-    this.httpClient.put("http://localhost:8010/taches/deletePatinTask/"+TaskId,PatId).
+    this.httpClient.put("http://planback.herokuapp.com/taches/deletePatinTask/"+TaskId,PatId).
     subscribe(data=>{location.reload()},
     err=>{alert(err)})
   }

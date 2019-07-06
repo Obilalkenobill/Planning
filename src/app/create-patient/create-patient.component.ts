@@ -20,13 +20,13 @@ model:patient={
   constructor(private router : Router, private http:HttpClient, public authorize: AuthorizeService) { 
   }
   ngOnInit() {
-    this.http.get("http://localhost:8010/infirmier").subscribe(data=>{this.listinfirmier=data},err=>{console.log(err)})
+    this.http.get("http://planback.herokuapp.com/infirmier").subscribe(data=>{this.listinfirmier=data},err=>{console.log(err)})
   }
   
 Post(nom,prenom){
   this.model.nom=nom;
   this.model.prenom=prenom;
-  this.http.post("http://localhost:8010/patients",this.model).
+  this.http.post("http://planback.herokuapp.com/patients",this.model).
   subscribe(data=>{this.router.navigate(['patient']);},
   err=>{alert(err)})
 }

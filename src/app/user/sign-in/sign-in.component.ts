@@ -25,7 +25,7 @@ public isAuth:Boolean;
   
   OnSubmit(userName,password){
 
- this.httpClient.get("http://localhost:8010/user/getbyname/"+userName).
+ this.httpClient.get("http://planback.herokuapp.com/user/getbyname/"+userName).
   subscribe(  (data:any) =>  {this.isAuth =(password == data.password) ; 
     if (this.isAuth) { this.user= new User(data.username, data.password,data.roles);console.log(this.isAuth)} },
   err=>{this.isAuth =(password == err.error.password) ; 

@@ -17,7 +17,7 @@ export class PatientDetailComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.httpClient.get("http://localhost:8010/patients/" + this.selectedid).subscribe(data => {this.pat = data;},err=>{this.pat = err.error;} );
+    this.httpClient.get("http://planback.herokuapp.com/patients/" + this.selectedid).subscribe(data => {this.pat = data;},err=>{this.pat = err.error;} );
     console.log(this.pat);
    
   }

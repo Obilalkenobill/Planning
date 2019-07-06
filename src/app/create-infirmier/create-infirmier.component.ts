@@ -22,7 +22,7 @@ export class CreateInfirmierComponent implements OnInit {
   Post(nom,prenom){
     this.model.nom=nom;
     this.model.prenom=prenom;
-    this.http.post("http://localhost:8010/infirmier",this.model).
+    this.http.post("http://planback.herokuapp.com/infirmier",this.model).
     subscribe(data=>{this.router.navigate(['infirmier']);},
     err=>{alert(err)})
   }
